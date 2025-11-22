@@ -1,21 +1,19 @@
 # Wordle Reinforcement Learning Agent
 
-A reinforcement learning agent trained to solve [Wordle](https://www.nytimes.com/games/wordle/index.html) using the **Advantage Actor–Critic (A2C)** algorithm. 
+A reinforcement learning agent trained to solve [Wordle](https://www.nytimes.com/games/wordle/index.html) using the **Advantage Actor–Critic (A2C)** algorithm. This project was developed as part of my Reinforcement Learning final exam, demonstrating how an RL agent can learn effective Wordle strategies from scratch.
 
-<p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Wordle_Logo.svg/1200px-Wordle_Logo.svg.png" width="200" alt="Wordle Logo">
-</p>
 
-Project Structure-/
+```text
+Reinforcement-Learning-/
 ├── src/
 │   ├── wordle_agent.py        # A2C neural network (Actor + Critic)
 │   ├── wordle_env.py          # Custom Wordle RL environment
 │   ├── wordle_core.py         # Game logic and vocabulary utilities
 │   ├── evaluate.py            # Evaluation and simulation helpers
 │   └── config.py              # Hyperparameters and settings
-├── main.ipynb                 # Main training notebook
+├── main.ipynb                 # Main training and experimentation notebook
+├── WO[R]E[L]E                  # Final project report (PDF)
 ├── README.md
-├── WO[R]E[L]E                 # report 
-
-
+└── .gitignore
+```
 
