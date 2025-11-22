@@ -46,7 +46,7 @@ def vocabulary(vocab_path, solutions_path):
         return full_vocab, solutions, VOCAB_SIZE, WORD_TO_IDX
 
 def wordle_feedback(guess: str, target: str):
-    """Calculate Wordle feedback for guess against target"""
+    """ to calculate Wordle feedback for guess against target"""
     guess, target = guess.lower(), target.lower()
     result = [0] * 5
     target_letters = Counter(target)
@@ -66,5 +66,5 @@ def wordle_feedback(guess: str, target: str):
     return tuple(result)
 
 def is_consistent(history, candidate):
-    """Check if candidate word is consistent with game history"""
+    """ to check if candidate word is consistent with game history"""
     return all(wordle_feedback(g, candidate) == fb for g, fb in history)
