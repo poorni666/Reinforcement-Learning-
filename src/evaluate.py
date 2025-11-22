@@ -37,7 +37,7 @@ def evaluate_agent_with_games(episode_num, num_display_games=2):
 
             with torch.no_grad():
                 logits, _ = agent(obs_t)
-                probs, current_temp = masked_softmax(logits, mask_t, episode_num, NUM_EPISODES)  # ← FIXED: catch both returns
+                probs, current_temp = masked_softmax(logits, mask_t, episode_num, NUM_EPISODES) 
                 action = torch.argmax(probs).item()
 
             guess = vocab[action]
@@ -55,7 +55,7 @@ def evaluate_agent_with_games(episode_num, num_display_games=2):
 
         total_guesses += min(guesses, 6)
 
-    # Run remaining evaluation silently for statistics
+    # Run remaining evaluation 
     silent_wins = 0
     first_guesses = Counter()
 
@@ -69,18 +69,17 @@ def evaluate_agent_with_games(episode_num, num_display_games=2):
         mask_t = mask.unsqueeze(0).to(device)
         with torch.no_grad():
             logits, _ = agent(obs_t)
-            probs, current_temp = masked_softmax(logits, mask_t, episode_num, NUM_EPISODES)  # ← FIXED
+            probs, current_temp = masked_softmax(logits, mask_t, episode_num, NUM_EPISODES)  
             first_action = torch.argmax(probs).item()
             first_guess = vocab[first_action]
             first_guesses[first_guess] += 1
 
-        # Play silently
         while not done:
             obs_t = obs.unsqueeze(0).to(device)
             mask_t = mask.unsqueeze(0).to(device)
             with torch.no_grad():
                 logits, _ = agent(obs_t)
-                probs, current_temp = masked_softmax(logits, mask_t, episode_num, NUM_EPISODES)  # ← FIXED
+                probs, current_temp = masked_softmax(logits, mask_t, episode_num, NUM_EPISODES) 
                 action = torch.argmax(probs).item()
             obs, _, done, mask = eval_env.step(action)
 
